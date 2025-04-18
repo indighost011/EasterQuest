@@ -16,13 +16,13 @@
 
     body {
       margin: 0;
-      padding: 0;
+      padding: 40px 0 0;         /* push content down from top */
       font-family: 'EB Garamond', serif;
-      background-color: #fffaf0;
+      background-color: #ffffff; /* white background */
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start; /* align items at top instead of center */
       min-height: 100vh;
       transition: background-color 1s ease;
     }
@@ -30,7 +30,7 @@
     h1 {
       font-size: 3em;
       color: #2e8b57;
-      margin-bottom: 5px;
+      margin: 10px 0 5px;
       animation: fadeIn 2s ease;
     }
 
@@ -39,18 +39,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 20px;
+      margin-bottom: 10px;    /* less space below logo */
+      margin-top: 40px;       /* Move logo higher up */
     }
 
     .logo {
-      width: 120px;  /* Adjust the size of the logo */
+      width: 120px;
       height: auto;
+      animation: fadeIn 1.5s ease;
     }
 
     .cross-icon {
       font-size: 40px;
       color: #a0522d;
-      margin-top: -20px;
+      margin-top: -10px;      /* keep cross close to logo */
       animation: fadeIn 2s ease;
     }
 
@@ -61,10 +63,10 @@
       max-width: 600px;
       animation: fadeIn 2s ease 0.5s;
       animation-fill-mode: both;
+      margin: 0 20px 30px;
     }
 
     .buttons {
-      margin-top: 40px;
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
@@ -131,10 +133,10 @@
   </p>
 
   <div class="buttons">
-    <a href="hope.html"><button class="station-btn">Hope</button></a>
-    <a href="sadness.html"><button class="station-btn">Sadness</button></a>
-    <a href="waiting.html"><button class="station-btn">Waiting</button></a>
-    <a href="joy.html"><button class="station-btn">Joy</button></a>
+    <button class="station-btn" onclick="checkPassword('hope')">Hope</button>
+    <button class="station-btn" onclick="checkPassword('sadness')">Sadness</button>
+    <button class="station-btn" onclick="checkPassword('waiting')">Waiting</button>
+    <button class="station-btn" onclick="checkPassword('joy')">Joy</button>
   </div>
 
   <div id="result"></div>
@@ -155,25 +157,16 @@
     };
 
     function checkPassword(station) {
-      const userInput = prompt(`Enter the password for ${capitalize(station)}:`);
-
+      const userInput = prompt(`Enter the password for ${station.charAt(0).toUpperCase() + station.slice(1)}:`);
       const resultDiv = document.getElementById("result");
-
       if (userInput === null) {
         resultDiv.innerText = "Cancelled.";
-        return;
-      }
-
-      if (userInput.trim().toLowerCase() === passwords[station]) {
-        document.body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue(`--${station}-color`);
-        resultDiv.innerHTML = `<strong>Correct!</strong> You have reached the <em>${capitalize(station)}</em> station.`;
+      } else if (userInput.trim().toLowerCase() === passwords[station]) {
+        document.body.style.backgroundColor = colors[station];
+        resultDiv.innerHTML = `<strong>Correct!</strong> You have reached the <em>${station.charAt(0).toUpperCase() + station.slice(1)}</em> station.`;
       } else {
         resultDiv.innerHTML = `<strong>Incorrect password.</strong> Please try again.`;
       }
-    }
-
-    function capitalize(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1);
     }
   </script>
 </body>
