@@ -34,6 +34,19 @@
       animation: fadeIn 2s ease;
     }
 
+    /* Logo and cross container styling */
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .logo {
+      width: 120px;  /* Adjust the size of the logo */
+      height: auto;
+    }
+
     .cross-icon {
       font-size: 40px;
       color: #a0522d;
@@ -106,21 +119,23 @@
   </style>
 </head>
 <body>
-  <div class="cross-icon">✝</div>
+  <div class="logo-container">
+    <img src="logo.jpg" alt="Logo" class="logo" />
+    <div class="cross-icon">✝</div>
+  </div>
+  
   <h1>Easter Quest</h1>
   <p>
     Follow the journey of Jesus through stations of <strong>Hope</strong>, <strong>Sadness</strong>, <strong>Waiting</strong>, and <strong>Joy</strong>.  
     Click your current station, enter the password, and reflect on His love.
   </p>
 
-<!-- Only the buttons section updated -->
-<div class="buttons">
-  <a href="hope.html"><button class="station-btn">Hope</button></a>
-  <a href="sadness.html"><button class="station-btn">Sadness</button></a>
-  <a href="waiting.html"><button class="station-btn">Waiting</button></a>
-  <a href="joy.html"><button class="station-btn">Joy</button></a>
-</div>
-
+  <div class="buttons">
+    <a href="hope.html"><button class="station-btn">Hope</button></a>
+    <a href="sadness.html"><button class="station-btn">Sadness</button></a>
+    <a href="waiting.html"><button class="station-btn">Waiting</button></a>
+    <a href="joy.html"><button class="station-btn">Joy</button></a>
+  </div>
 
   <div id="result"></div>
 
