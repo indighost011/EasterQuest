@@ -11,8 +11,12 @@
       color: #4B0082;
       text-align: center;
       padding: 40px 20px;
-      display: none;
-      animation: fadeIn 2s ease-in;
+      opacity: 0;
+      transition: opacity 2s ease-in;
+    }
+
+    body.visible {
+      opacity: 1;
     }
 
     h1 {
@@ -25,11 +29,6 @@
       max-width: 90%;
       margin: 0 auto;
       line-height: 1.5;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
     }
 
     button, .download-btn {
@@ -48,7 +47,7 @@
     }
 
     .download-btn {
-      background: linear-gradient(to right, #6a1b9a, #ab47bc); /* royal purple tones */
+      background: linear-gradient(to right, #6a1b9a, #ab47bc);
       color: white;
       font-weight: bold;
       box-shadow: 0 6px 12px rgba(106, 27, 154, 0.3);
@@ -66,13 +65,25 @@
       box-shadow: 0 5px 10px rgba(106, 27, 154, 0.2);
     }
 
-    /* Responsive tweaks */
+    /* Mobile Responsive */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
+      body {
+        padding: 30px 15px;
       }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
       p {
         font-size: 1em;
+      }
+
+      button, .download-btn {
+        width: 90%;
+        max-width: 300px;
+        font-size: 1em;
+        padding: 14px 20px;
       }
     }
   </style>
@@ -83,30 +94,28 @@
     At the foot of the cross, sorrow filled the air. Yet even in sadness, love was never absent—Jesus gave His life for ours.
   </p>
 
-  <script>
-    const correctPassword = "cross123";
-    const userInput = prompt("Enter the password to access this station:");
-
-    if (userInput && userInput.trim().toLowerCase() === correctPassword) {
-      document.body.style.display = "block";
-    } else {
-      alert("Incorrect password. Returning to main page.");
-      window.location.href = "index.html";
-    }
-  </script>
-
   <br><br>
   <button onclick="goBack()" class="back-btn">⬅ Back to Main</button>
-
-  <script>
-    function goBack() {
-      window.location.href = "index.html";
-    }
-  </script>
 
   <br><br>
   <a href="https://drive.google.com/file/d/1i2gysQbHMOVcds7bbFhvPuFoqsyA8oZL/view?usp=sharing" target="_blank">
     <button class="download-btn">📄 Download the PDF Questions</button>
   </a>
+
+  <script>
+    const correctPassword = "cross123";
+    const userInput = prompt("Enter the password to access this station:");
+
+    if (userInput && userInput.trim().toLowerCase() === correctPassword) {
+      document.body.classList.add("visible");
+    } else {
+      alert("Incorrect password. Returning to main page.");
+      window.location.href = "index.html";
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
 </body>
 </html>
