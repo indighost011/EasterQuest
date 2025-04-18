@@ -16,13 +16,13 @@
 
     body {
       margin: 0;
-      padding: 40px 0 0;         /* push content down from top */
+      padding: 40px 0 0;
       font-family: 'EB Garamond', serif;
-      background-color: #ffffff; /* white background */
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start; /* align items at top instead of center */
+      justify-content: flex-start;
       min-height: 100vh;
       transition: background-color 1s ease;
     }
@@ -34,13 +34,12 @@
       animation: fadeIn 2s ease;
     }
 
-    /* Logo and cross container styling */
     .logo-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 10px;    /* less space below logo */
-      margin-top: 40px;       /* Move logo higher up */
+      margin-bottom: 10px;
+      margin-top: 40px;
     }
 
     .logo {
@@ -52,7 +51,7 @@
     .cross-icon {
       font-size: 40px;
       color: #a0522d;
-      margin-top: -10px;      /* keep cross close to logo */
+      margin-top: -10px;
       animation: fadeIn 2s ease;
     }
 
@@ -133,10 +132,10 @@
   </p>
 
   <div class="buttons">
-    <button class="station-btn" onclick="checkPassword('hope')">Hope</button>
-    <button class="station-btn" onclick="checkPassword('sadness')">Sadness</button>
-    <button class="station-btn" onclick="checkPassword('waiting')">Waiting</button>
-    <button class="station-btn" onclick="checkPassword('joy')">Joy</button>
+    <a href="hope.html"><button class="station-btn">Hope</button></a>
+    <a href="sadness.html"><button class="station-btn">Sadness</button></a>
+    <a href="waiting.html"><button class="station-btn">Waiting</button></a>
+    <a href="joy.html"><button class="station-btn">Joy</button></a>
   </div>
 
   <div id="result"></div>
