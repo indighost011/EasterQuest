@@ -2,28 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hope - Easter Quest</title>
   <style>
     body {
       font-family: 'EB Garamond', serif;
       background-color: #C8E4FF;
       text-align: center;
-      padding: 50px;
+      padding: 40px 20px;
       display: none;
       color: #2E8B57;
       animation: fadeIn 1.5s ease-in;
     }
     h1 {
-      font-size: 3em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
     p {
-      font-size: 1.3em;
-      max-width: 600px;
+      font-size: 1.2em;
+      max-width: 90%;
       margin: 0 auto;
+      line-height: 1.5;
     }
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
+    }
+    button, .download-btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .download-btn {
+      background: linear-gradient(to right, #2E8B57, #3CB371);
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 6px 12px rgba(46, 139, 87, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(46, 139, 87, 0.5);
+      background: linear-gradient(to right, #3CB371, #66CDAA);
+    }
+
+    .download-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 5px 10px rgba(46, 139, 87, 0.2);
+    }
+
+    .back-btn {
+      background-color: #333;
+      color: white;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -44,48 +89,19 @@
       window.location.href = "index.html";
     }
   </script>
-    <br><br>
-  <button onclick="goBack()" style="margin-top: 40px; padding: 10px 20px; font-size: 1em; border: none; background-color: #333; color: white; border-radius: 8px; cursor: pointer; transition: background 0.3s;">
-    ⬅ Back to Main
-  </button>
+
+  <br><br>
+  <button onclick="goBack()" class="back-btn">⬅ Back to Main</button>
 
   <script>
     function goBack() {
       window.location.href = "index.html";
     }
   </script>
-  
- <a href="https://drive.google.com/file/d/1i2gysQbHMOVcds7bbFhvPuFoqsyA8oZL/view?usp=sharing" target="_blank">
-  <button class="download-btn">📄 Download the PDF Questions</button>
-</a>
 
-<style>
-    .download-btn {
-    background: linear-gradient(to right, #2E8B57, #3CB371); /* green gradient */
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 8px 16px rgba(46, 139, 87, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .download-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(46, 139, 87, 0.5);
-    background: linear-gradient(to right, #3CB371, #66CDAA);
-  }
-
-  .download-btn:active {
-    transform: scale(0.97);
-    box-shadow: 0 5px 10px rgba(46, 139, 87, 0.2);
-  }
-</style>
-
-
-
+  <br><br>
+  <a href="https://drive.google.com/file/d/1i2gysQbHMOVcds7bbFhvPuFoqsyA8oZL/view?usp=sharing" target="_blank">
+    <button class="download-btn">📄 Download the PDF Questions</button>
+  </a>
 </body>
 </html>
